@@ -11,6 +11,7 @@ Vue.use(Router)
   } else {
     next('/')
   }
+  next()
 } 
 
 //首页下二级路由
@@ -27,7 +28,7 @@ export let indexRoutes = [{
     component: () => import("../pages/role/role.vue"),
     name: '角色管理',
     beforeEnter(to,from,next){
-      checkedEnter('/menu',next)
+      checkedEnter('/role',next)
     }
   },
   {
@@ -35,7 +36,7 @@ export let indexRoutes = [{
     component: () => import("../pages/manage/manage.vue"),
     name: '管理员管理',
     beforeEnter(to,from,next){
-      checkedEnter('/menu',next)
+      checkedEnter('/manage',next)
     }
   },
   {
@@ -43,7 +44,7 @@ export let indexRoutes = [{
     component: () => import("../pages/cate/cate.vue"),
     name: '商品分类',
     beforeEnter(to,from,next){
-      checkedEnter('/menu',next)
+      checkedEnter('/cate',next)
     }
   },
   {
@@ -51,7 +52,7 @@ export let indexRoutes = [{
     component: () => import("../pages/specs/specs.vue"),
     name: '商品规格',
     beforeEnter(to,from,next){
-      checkedEnter('/menu',next)
+      checkedEnter('/specs',next)
     }
   },
   {
@@ -59,7 +60,7 @@ export let indexRoutes = [{
     component: () => import("../pages/goods/goods.vue"),
     name: '商品管理',
     beforeEnter(to,from,next){
-      checkedEnter('/menu',next)
+      checkedEnter('/goods',next)
     }
   },
   {
@@ -67,7 +68,7 @@ export let indexRoutes = [{
     component: () => import("../pages/member/member.vue"),
     name: '会员管理',
     beforeEnter(to,from,next){
-      checkedEnter('/menu',next)
+      checkedEnter('/member',next)
     }
   },
   {
@@ -75,7 +76,7 @@ export let indexRoutes = [{
     component: () => import("../pages/banner/banner.vue"),
     name: '轮播图管理',
     beforeEnter(to,from,next){
-      checkedEnter('/menu',next)
+      checkedEnter('/banner',next)
     }
   },
   {
@@ -83,7 +84,7 @@ export let indexRoutes = [{
     component: () => import("../pages/seckill/seckill.vue"),
     name: '秒杀活动',
     beforeEnter(to,from,next){
-      checkedEnter('/menu',next)
+      checkedEnter('/seckill',next)
     }
   },
 ]

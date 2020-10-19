@@ -40,7 +40,7 @@
 </template>
 <script>
 import { mapGetters, mapActions } from "vuex";
-import { reqRoleAdd, reqRoleDel, reqRoleUpdata } from "../../../utils/request";
+import { reqRoleAdd, reqRoleDetail, reqRoleUpdata } from "../../../utils/request";
 import { successAlert, warningAlert } from "../../../utils/alert";
 export default {
   props: ["info"],
@@ -93,7 +93,7 @@ export default {
     // 点击添加
     add() {
       //树形控件取值 this.$ref.tree.getCheckedkeys()
-    //   this.from.menus = JSON.stringify(this.$refs.tree.getCheckedkeys());
+      this.form.menus = JSON.stringify(this.$refs.tree.getCheckedKeys());
       reqRoleAdd(this.form).then((res) => {
         if (res.data.code == 200) {
           //成功
@@ -118,7 +118,7 @@ export default {
           this.form = res.data.list;
           this.form.id = id;
           //给树形控件赋值
-          this.$refs.tree.setCheckedkeys(JSON.parse(this.form.menus));
+          this.$refs.tree.setCheckedKeys(JSON.parse(this.form.menus));
         } else {
           warningAlert(res.data.msg);
         }
@@ -126,7 +126,7 @@ export default {
     },
     // 修改
     updata() {
-      this.form.menus = JSON.stringify(this.$refs.tree.getCheckedkeys());
+      this.form.menus = JSON.stringify(this.$refs.tree.getCheckedKeys());
       reqRoleUpdata(this.form).then((res) => {
         if (res.data.code == 200) {
           successAlert(res.data.msg);

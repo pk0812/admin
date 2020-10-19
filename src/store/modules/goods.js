@@ -5,9 +5,9 @@ const state={
     // 一页数量
     size:2,
     // 总页数
-    Total:0,
+    total:0,
     // 页码
-    page:1
+    page:1,
 }
 const mutations={
     // 修改list

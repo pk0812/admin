@@ -35,16 +35,22 @@ export default {
     }),
   }, 
   methods:{
-    ...mapActions({changeUserInfoAction:"changeUserInfoAction"}),
+    ...mapActions({
+      changeUserInfoAction:"changeUserInfoAction"
+      }),
     login(){
-      // this.$router.push('/')
+      console.log(111);
+   
+      console.log(this.form);
       reqLogin(this.form).then(res=>{
-        if(res.data.code==200){
+        console.log(222);
+         if(res.data.code==200){
           // 登录成功
           successAlert('登录成功')
           // res.data.list 用户信息，存起来，供多个组件使用
           this.changeUserInfoAction(res.data.list)
           this.$router.push('/')
+          
           // 跳转页面
           }else{
           warningAlert(res.data.msg)

@@ -161,10 +161,12 @@ export const reqManageUpdate = (params) => {
 }
 // 管理员登录
 export const reqLogin=(params)=>{
+  console.log(333);
+  console.log(params);
   return axios({
     url:baseUrl+'/api/userlogin',
     method:'post',
-    data:qs.stringify(params)
+    data:params
   })
 }
 
@@ -334,5 +336,120 @@ export const reqGoodsDel=(params)=>{
     url:baseUrl+'/api/goodsdelete',
     method:'post',
     data:qs.stringify(params)
+  })
+}
+// 会员管理****************************
+// 列表
+export const reqMemberList=()=>{
+  return axios({
+    url:baseUrl+'/api/memberlist',
+    
+  })
+}
+// 会员获取1条
+export const reqMemberDetail=(uid)=>{
+    return axios({
+      url:baseUrl+'/api/memberinfo',
+      method:'get',
+      params:{
+       uid:uid
+      }
+    })
+}
+// 会员修改
+export const reqMemberUpdata=(params)=>{
+  return axios({
+    url:baseUrl+'/api/memberedit',
+    method:'post',
+    data:qs.stringify(params)
+  })
+}
+// 轮播图管理**********************************
+// 添加
+export const reqBannerAdd=(params)=>{
+  return axios({
+    url:baseUrl+'/api/banneradd',
+    method:'post',
+    data:qs.stringify(params),
+  })
+}
+// 列表
+export const reqBannerList=()=>{
+  console.log(222);
+  return axios({
+    url:baseUrl+'/api/bannerlist',
+    method:'get',
+    
+  })
+}
+// 修改
+export const reqBannerUpdata=(params)=>{
+    return axios({
+      url:baseUrl+"/api/banneredit",
+      method:"post",
+      data:qs.stringify(params)
+    })
+}
+// 删除
+export const reqBannerDel=(id)=>{
+  return axios({
+    url:baseUrl+'/api/bannerdelete',
+    method:"post",
+    params:{
+      id:id
+    }
+  })
+}
+// 获取详情1条
+export const reqBannerDetail=(id)=>{
+  return axios({
+    url:baseUrl+'/api/bannerinfo',
+    method:'get',
+    params:{
+        id:id
+    }
+  })
+}
+// 秒杀活动管理**********************************
+// 添加
+export const reqSeckAdd=(params)=>{
+  return axios({
+    url:baseUrl+'/api/seckadd',
+    method:'post',
+    data:qs.stringify(params)
+  })
+}
+// 列表
+export const reqSeckList=()=>{
+  return axios({
+    url:baseUrl+'/api/secklist',
+  })
+}
+// 秒杀获取1条
+export const reqSeckDetail=(id)=>{
+  return axios({
+    url:baseUrl+'/api/seckinfo',
+    method:'get',
+    params:{
+        id:id
+    }
+  })
+}
+// 修改
+export const reqSeckUpdata=(params)=>{
+  return axios({
+    url:baseUrl+'/api/seckedit',
+    method:"post",
+    data:qs.stringify(params)
+  })
+}
+// 删除
+export const reqSeckDel=(id)=>{
+  return axios({
+    url:baseUrl+'/api/seckdelete',
+    method:'post',
+    data:qs.stringify({
+        id:id
+    })
   })
 }

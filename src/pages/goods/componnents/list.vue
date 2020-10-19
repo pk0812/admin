@@ -65,9 +65,10 @@ export default {
       list:'goods/list',
       size:'goods/size',
       total:'goods/total',
-    }),
+     }),
   },
   methods: {
+    
     ...mapActions({
       reqListAction:'goods/reqListAction',
       reqTotalAction:'goods/reqTotalAction',
@@ -79,7 +80,7 @@ export default {
     },
     // 删除
     dele(id){
-      reqGoodDel({id:id}).then((res)=>{
+      reqGoodsDel({id:id}).then((res)=>{
         if(res.data.code==200){
           successAlert(res.data.msg);
           this.reqListAction();
@@ -95,12 +96,15 @@ export default {
     },
   },
   mounted() {
+    
     // 获取list
     this.reqListAction();
     // 获取list总数
     this.reqTotalAction();
   },
+  
 };
+
 </script>
 <style scoped>
 img{

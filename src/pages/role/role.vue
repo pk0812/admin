@@ -42,7 +42,7 @@ export default {
     //编辑
     edit(id){
       this.info.isshow=true;
-      this.inf .isAdd=false;
+      this.info.isAdd=false;
       //让add组件发起获取详情请求
       this.$refs.add.look(id)
     }

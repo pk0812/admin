@@ -167,7 +167,7 @@ export default {
     },
     // 获取二级分类list
     getSecondList() {
-      reqCateList({ pid: this.form.first_cateid }).then((res) => {
+      reqCateList({ pid: this.form.first_cateid}).then((res) => {
         // 二级分类list
         this.secondCateList = res.data.list;
       });
@@ -193,8 +193,9 @@ export default {
       // 在specsList中找到 找到哪一条数据的id和当前this.form.specsid是一样的。
       let obj = this.specsList.find((item) => item.id == this.form.specsid);
       // 把这条数据的attrs赋值给goodsAttrList；
-      this.goodsAttrList = obj.attr;
+      this.goodsAttrList = obj.attrs;
     },
+    
     add() {
       // 将富文本编辑器的内容拿到给form.description
       this.form.description = this.editor.txt.html();
@@ -252,7 +253,7 @@ export default {
           this.empty();
           this.cancel();
           this.reqListAction();
-          this.reqTotalAction();
+          
         } else {
           warningAlert(res.data.msg);
         }
@@ -266,6 +267,7 @@ export default {
         this.empty();
       }
     },
+    // 数据重置
     empty() {
       this.form = {
         first_cateid: "",
